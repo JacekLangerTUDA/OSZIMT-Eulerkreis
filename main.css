@@ -1,0 +1,62 @@
+
+:root{
+    --gridcolor : #2D1F45;
+    --activeCellColor : #FFE200;
+    --highlightCellColor : #9D7E00;
+    --clearColor : #1B0B36;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background: #291943;
+}
+canvas{
+  position:relative;
+  box-sizing:border-box;
+  cursor: pointer;
+  filter: drop-shadow(5px 5px 4px #2D1F45);
+  border-radius: 15px;
+}
+
+button{
+    border-radius: 10px;
+    background-color: var(--gridcolor);
+    color:var(--highlightCellColor);
+    border: var(--gridcolor) solid 1px;
+    
+    filter: drop-shadow(3px 3px 4px var(--clearColor))
+}
+
+button:hover{
+    background: var(--gridcolor);
+    color:var(--activeCellColor)
+}
+
+button:active{
+    background: var(--clearColor);
+    
+    filter: drop-shadow(0 0 0 var(--clearColor))
+}
+
+btn-container{
+    position: relative;
+    display:inline-block;
+    padding-top: 5rem;
+}
+
+#node-table{
+    border-radius: 10px;
+    background-color: var(--clearColor);
+    color:var(--activeCellColor);
+    min-width:400px;
+    border-spacing: 3rem;
+    filter:drop-shadow(3px 3px 4px var(--clearColor))
+}
+th ,td {
+    padding: 1em;
+}
+
+tr:nth-child(even){
+    background-color: var(--gridcolor);
+}
