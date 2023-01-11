@@ -44,9 +44,9 @@ function cell(x,y,i) {
 			activate: function activate() {
                 this.isActive = true
                 fillRadialGradient(this, activeCellColor, clearColor);
-                ctx.font = (step / 2)+"px arial";
-                ctx.fillStyle = activeCellColor
-                ctx.fillText(this.index,rect.x , rect.y )
+                ctx.font = (step / 3)+"px arial";
+                ctx.fillStyle = clearColor
+                ctx.fillText(this.index, this.left+step*.3, this.top+rect.y+ margin+1 )
 			},
             connect(other){
                 if(!this.isActive) return
