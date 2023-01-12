@@ -31,7 +31,7 @@ const click = "click";
 // global variables
 let grid
 let step	// the step size at which a single cell is placed
-let offset  // the offset at which the line begins
+let offset = 30  // the offset at which the line begins
 let rect = canvas.getBoundingClientRect();		// bounding rect for the canvas to get the offset resulting from padding
 let isDebug = false
 let possibleStartpoints = [];	// list of possible start points. this points will be shown in a highlighted color
@@ -194,7 +194,7 @@ function cell(x, y,i) {
 					cellOpts.activeGlow
 				);
 				
-				drawIndex(this, cellOpts.start, cellOpts.startGlow);
+				drawIndex(this, activeCellColor, activeCellColor);
 				possibleStartpoints.push(this)			
 			},
 		/**
@@ -237,8 +237,8 @@ function getCellOpts(){
 		bg: "#2D1F45",
 		shadow: "#0C000F",
 		start: "#4A6B1E",
-		activeColor: "#651D3A",
-		activeGlow: "#440A21",
+		activeColor: "#451ACD",
+		activeGlow: "#150E37",
 		startGlow: "#2C480B",
 	};
 }
@@ -327,7 +327,7 @@ function drawIndex(cell, color = cellOpts.bg, glow = cellOpts.shadow) {
  * @param {position} end end poisition x y
  * @param {int} offset offset from x and y
  */
-function gradientLine(start, end, offset = 0){
+function gradientLine(start, end, offs = 0){
 
 	const gradient = ctx.createLinearGradient(
 		start.x,
@@ -339,7 +339,7 @@ function gradientLine(start, end, offset = 0){
 	let p1 = {x:start.x, y:start.y}
 	let p2 = {x:end.x, y:end.y}
 
-	if(offset > 0){
+	if(offs > 0){
 
 		dy = p2.y - p1.y
 		dx = p2.x - p1.x
@@ -347,8 +347,8 @@ function gradientLine(start, end, offset = 0){
 		debug(alpha)
 		
 		let xr,yr
-		xr = Math.cos(alpha)*offset
-		yr = Math.sin(alpha)*offset
+		xr = Math.cos(alpha)*offs
+		yr = Math.sin(alpha)*offs
 		// console.log("xr:",xr,"yr:", yr,"alpha:",alpha);
 		
 		p1.x += xr
