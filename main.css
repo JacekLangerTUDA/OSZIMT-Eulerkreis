@@ -4,6 +4,9 @@
     --activeCellColor : #FFE200;
     --highlightCellColor : #9D7E00;
     --clearColor : #1B0B36;
+    --btnGlowColor:#592861;
+    --btnHoverColor:#2D0734;
+    --pop:drop-shadow(3px 3px 4px var(--btnHoverColor))
 }
 
 body{
@@ -15,8 +18,8 @@ canvas{
   position:relative;
   box-sizing:border-box;
   cursor: pointer;
-  filter: drop-shadow(5px 5px 4px #2D1F45);
-  border-radius: 15px;
+  filter: var(--pop);
+  border-radius: 10px;
 }
 
 button{
@@ -29,14 +32,33 @@ button{
 }
 
 button:hover{
-    background: var(--gridcolor);
-    color:var(--activeCellColor)
+    background: var(--btnHoverColor);
+    color:var(--activeCellColor);
+    border: solid 1px var(--gridcolor);
+    color: var(--activeCellColor);
+    filter: drop-shadow(3px 3px 4px var(--btnGlowColor));
 }
 
 button:active{
     background: var(--clearColor);
     
-    filter: drop-shadow(0 0 0 var(--clearColor))
+    filter: drop-shadow(2px 2px 1px var(--clearColor))
+}
+
+
+button:disabled,
+button[disabled]{
+  border: 1px solid var(--btnGlowColor);
+  background-color: var(--btnGlowColor);
+  color: #666666;
+}
+
+button:disabled,
+button[disabled]:hover{
+  border: 1px solid var(--btnGlowColor);
+  background-color: var(--btnGlowColor);
+  color: #666666;
+  filter:var(--pop)
 }
 
 btn-container{
@@ -51,7 +73,9 @@ btn-container{
     color:var(--activeCellColor);
     min-width:400px;
     border-spacing: 3rem;
-    filter:drop-shadow(3px 3px 4px var(--clearColor))
+    /* filter:drop-shadow(3px 3px 4px var(--clearColor)); */
+    
+  filter: var(--pop);
 }
 th ,td {
     padding: 1em;
